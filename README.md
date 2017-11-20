@@ -8,7 +8,7 @@ All the examples are using [P5JS](http://p5js.org/) for displaying graphics and 
 
 ### Folder Structure
 
-Each example includes used media files (sounds, animated gifs, images etc). The 'libs' folder contains the necessery js libraries and the pre-trained face traclking models. 
+Each example includes media files (sounds, animated gifs, images etc). The 'libs' folder contains the necessary js libraries and the pre-trained face traclking models. 
 
 (c) 2017 Agoston Nagy / gpl v3
 
