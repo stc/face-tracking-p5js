@@ -20,7 +20,6 @@ function setup() {
     ctracker.start(videoInput.elt);
     noStroke();
 
-    // setup sound
     myImage = loadImage("mask.png");
 }
       
