@@ -17,18 +17,23 @@ function setup() {
     ctracker = new clm.tracker();
     ctracker.init(pModel);
     ctracker.start(videoInput.elt);
-    noStroke();
 }
       
 function draw() {
-    background(60);
+    background(230);
     // get array of face marker positions [x, y] format
     var positions = ctracker.getCurrentPosition();
         
-    for (var i=0; i<positions.length -3; i++) {
+    for (var i=0; i<positions.length -1; i++) {
         // set the color of the ellipse based on position on screen
-        fill(map(positions[i][0], width*0.33, width*0.66, 0, 255), map(positions[i][1], height*0.33, height*0.66, 0, 255), 255);
+        fill(map(positions[i][0], width*0.33, width*0.66, 0, 255), map(positions[i][1], height*0.33, height*0.66, 0, 100), 0);
+        
         // draw ellipse
-        ellipse(width - positions[i][0], positions[i][1], 8, 8);
+        noStroke();
+        ellipse(width - positions[i][0], positions[i][1], 4, 4);
+        
+        // draw line
+        stroke(map(positions[i][0], width*0.33, width*0.66, 0, 255), map(positions[i][1], height*0.33, height*0.66, 0, 100), 0,50);
+        line(width - positions[i][0], positions[i][1], width - positions[i+1][0], positions[i+1][1]);
     }
 }

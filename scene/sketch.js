@@ -26,7 +26,7 @@ function setup() {
 }
       
 function draw() {
-    background(200,100,80);
+    background(179, 224, 255);
     // get array of face marker positions [x, y] format
     var positions = ctracker.getCurrentPosition();
     if(positions.length > 0) {
@@ -38,7 +38,7 @@ function draw() {
     imageMode(CENTER,CENTER);
     image(myGif,width/2,height/2);
     
-    fill(220,120,100);
+    fill(77, 184, 255);
     rect(-headpos * 2 + width/4,0,width/2,height);
     
 }
