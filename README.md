@@ -4,7 +4,17 @@ A growing collection of examples used to demonstrate basic concepts of the usage
 
 All the examples are using [P5JS](http://p5js.org/) for displaying graphics and playing back sounds. The face tracking is based on [clmtrackr](https://github.com/auduno/clmtrackr). Each of these libraries can be found in the 'libs' folder. To launch the experiments, download the [brackets](http://brackets.io/) editor. Open the folder of this repository and hit 'live preview' on the top right.
 
-![examples](https://user-images.githubusercontent.com/270431/33015571-856d30b2-cdeb-11e7-9e8b-efb6f28b5963.jpg)
+![001](https://user-images.githubusercontent.com/270431/40185787-c0e67830-59f3-11e8-9b94-5e619b195f57.jpg)
+_fig. 1: Feature points of tracked faces_
+
+![004inverted](https://user-images.githubusercontent.com/270431/40185873-0b663e18-59f4-11e8-94b8-250c339d3813.jpg)
+_fig. 2: Left- Source Code in Brackets editor, Middle- Indexed feature points, Right- Error message_
+
+![003](https://user-images.githubusercontent.com/270431/40185938-32323722-59f4-11e8-98a0-0bb116c9bf3c.jpg)
+_fig. 3: Scene example, where graphical elements are moved, based on head position_
+
+![002](https://user-images.githubusercontent.com/270431/40185998-5080e4f8-59f4-11e8-879a-97ec2d30deef.jpg)
+_fig. 4: Sentiment Analysis_
 
 ### Folder Structure
 
