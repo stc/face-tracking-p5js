@@ -18,8 +18,10 @@ _fig. 3: Scene example, where graphical elements are moved, based on head positi
 _fig. 4: Sentiment Analysis_
 
 ### Folder Structure
+Each example includes media files (sounds, animated gifs, images etc). The 'libs' folder contains the necessary js libraries and the pre-trained face traclking models.
 
-Each example includes media files (sounds, animated gifs, images etc). The 'libs' folder contains the necessary js libraries and the pre-trained face traclking models. 
+### Workshop Schedule
+See the [wiki](https://github.com/stc/face-tracking-p5js/wiki/Schedule) for detailed workshop schedule and the specific tasks we are dealing with during the session. Durations of the parts may vary depending on the knowledge and insterest of the participants.
 
 (c) 2018 Agoston Nagy / gpl v3
 
