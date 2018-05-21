@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Simple</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="../libs/p5.js"></script>
+    <script src="../libs/p5.dom.js"></script>
+    <style>
+        body {
+            padding: 0;
+            margin: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="loading">
+        Loading the model...
+    </div>
+
+    <div id="main" style="display:none">
+        <video id="video" playsinline="" style=" -moz-transform: scaleX(-1);
+        -o-transform: scaleX(-1);
+        -webkit-transform: scaleX(-1);
+        transform: scaleX(-1);
+        display: none;
+        ">
+        </video>
+        <canvas id="output">
+    </canvas></div>
+    <div class="footer">
+        
+    </div>
+    <script>var mPoses = [];</script>
+    <script src="tf-pose.js"></script>
+    <script src="sketch.js"></script>
+</body>
+
+</html>
