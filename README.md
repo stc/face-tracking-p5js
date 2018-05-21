@@ -24,7 +24,7 @@ Each example includes media files (sounds, animated gifs, images etc). The 'libs
 See the [wiki](https://github.com/stc/face-tracking-p5js/wiki/Schedule) for detailed workshop schedule and the specific tasks we are dealing with during the session. Durations of the parts may vary depending on the knowledge and interest of the participants.
 
 ### Notes
-_009_pose_ example is highly experimental and a quick hack to use [pose estimation from tensorflow.js](https://github.com/tensorflow/tfjs-models/tree/master/posenet) together with p5js. It can be tried out, and is set up to track multiple poses from a single camera image. All the variables and parameters are baked into the pre-generated ts-pose.js file, if you'd like to tinker with it, I recommend the [official site](https://github.com/tensorflow/tfjs-models/tree/master/posenet). However, fro a quick demonstration, you can make your own drawing methods and desired interactions on the p5 side.
+_009_pose_ example is highly experimental and a quick hack to use [pose estimation from tensorflow.js](https://github.com/tensorflow/tfjs-models/tree/master/posenet) together with p5js. It can be tried out, and is set up to track multiple poses from a single camera image. All the variables and parameters are baked into the pre-generated ts-pose.js file, if you'd like to tinker with it, I recommend the [official site](https://github.com/tensorflow/tfjs-models/tree/master/posenet). However, for a quick demonstration, you can make your own drawing methods and desired interactions on the p5 side. Needs network connection to load the pretrained Tensorflow models.
 
 (c) 2018 Agoston Nagy / gpl v3
 
