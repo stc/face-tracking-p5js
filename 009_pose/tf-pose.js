@@ -27748,7 +27748,7 @@ function detectPoseInRealTime(video, net) {
     let poses = [];
     let minPoseConfidence = 0.2;
     let minPartConfidence = 0.5;
-    let maxPoseDetections = 2;
+    let maxPoseDetections = 10;
     let nmsRadius = 20.0;
     poses = await net.estimateMultiplePoses(video, imageScaleFactor, flipHorizontal, outputStride, maxPoseDetections, minPartConfidence, nmsRadius);
     ctx.clearRect(0, 0, videoWidth, videoHeight);
