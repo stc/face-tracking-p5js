@@ -16,11 +16,11 @@ class Pose {
 		for(let i=0; i< this.mappedPose.length; i++) {
 			if(i<5) {
 				noStroke();
-				fill(255,255,0);
+				fill(200,0,50);
 				rect(this.mappedPose[i][0], this.mappedPose[i][1],10, 10);
 			}
-			/*
-			stroke(255,0,100);
+			
+			/*stroke(255,0,100);
 			strokeWeight(2);
 			line(this.mappedPose[5][0], this.mappedPose[5][1],  this.mappedPose[6][0],  this.mappedPose[6][1]);
 			line(this.mappedPose[5][0], this.mappedPose[5][1],  this.mappedPose[7][0],  this.mappedPose[7][1]);
@@ -35,9 +35,7 @@ class Pose {
 			line(this.mappedPose[13][0],this.mappedPose[13][1], this.mappedPose[15][0], this.mappedPose[15][1]);
 			line(this.mappedPose[12][0],this.mappedPose[12][1], this.mappedPose[14][0], this.mappedPose[14][1]);
 			line(this.mappedPose[14][0],this.mappedPose[14][1], this.mappedPose[16][0], this.mappedPose[16][1]);	
-			
 			*/
-			
 			noStroke();
 			text(i, this.mappedPose[i][0]+10,this.mappedPose[i][1]);
 		}	

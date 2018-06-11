@@ -9,7 +9,7 @@ var  VerletPhysics2D = toxi.physics2d.VerletPhysics2D,
       Vec2D = toxi.geom.Vec2D,
       Rect = toxi.geom.Rect;
 
-let NUM_PARTICLES = 10;
+let NUM_PARTICLES = 200;
 
 let physics;
 let mouseAttractor;
@@ -27,11 +27,11 @@ function setup() {
 
 	physics = new VerletPhysics2D();
   	physics.setDrag(0.05);
-  	physics.setWorldBounds(new Rect((width-height*captureRatio)/2, 0, height * captureRatio, height));
+  	physics.setWorldBounds(new Rect((width-height*captureRatio)/2 +200, 0, height * captureRatio-400, height));
   	physics.addBehavior(new GravityBehavior(new Vec2D(0, 0.15)));
 
   	headPos = new Vec2D(width/2,height/2); 
-  	headAttractor = new AttractionBehavior(headPos, 500, 0.9);
+  	headAttractor = new AttractionBehavior(headPos, 200, -0.9);
   	physics.addBehavior(headAttractor);
 }
 
@@ -43,6 +43,7 @@ function addParticle() {
 }
 
 function draw() {
+	physics.update();
 	background(0);
 	push();
 	tint(255,50);
@@ -64,23 +65,25 @@ function draw() {
 		p.draw();
 	}
 
-	if(cPoses.length>0) headPos.set(cPoses[0].mappedPose[0][0], cPoses[0].mappedPose[0][1]-300); 
-
-	console.log(headPos);
+	if(cPoses.length>0) headPos.set(cPoses[0].mappedPose[0][0], cPoses[0].mappedPose[0][1] - 200); 
 
 	if (physics.particles.length < NUM_PARTICLES) {
     	addParticle();
   	}
-  	physics.update();
   	
   	for (let i=0;i<physics.particles.length;i++) {
     	let p = physics.particles[i];
     	fill(255);
-    	rect(p.x, p.y, 10, 10);
+    	rect(p.x, p.y, 10, 10, 2);
+    	
   	}
 	
 	fill(255);
 	text(frameRate(), 30, 30);
+
+	stroke(255,100);
+	noFill();
+	rect((width-height*captureRatio)/2 +200, 0, height * captureRatio-400, height);
 }
 
 function mousePressed() {
