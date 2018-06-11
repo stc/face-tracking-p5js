@@ -2,14 +2,14 @@ let capture;
 const captureRatio = 1.333;
 let cPoses = [];
 
-var VerletPhysics2D = toxi.physics2d.VerletPhysics2D,
+let VerletPhysics2D = toxi.physics2d.VerletPhysics2D,
     VerletParticle2D = toxi.physics2d.VerletParticle2D,
     AttractionBehavior = toxi.physics2d.behaviors.AttractionBehavior,
     GravityBehavior = toxi.physics2d.behaviors.GravityBehavior,
     Vec2D = toxi.geom.Vec2D,
     Rect = toxi.geom.Rect;
 
-let NUM_PARTICLES = 200;
+let NUM_PARTICLES = 100;
 
 let physics;
 let mouseAttractor;
@@ -19,7 +19,7 @@ let headAttractor;
 let headPos;
 
 function setup() {
-	var canvas = createCanvas(windowWidth,windowHeight);
+	let canvas = createCanvas(windowWidth,windowHeight);
 	canvas.position(0,0);
 	canvas.id("mCanvas");
 	capture = createCapture(VIDEO);
