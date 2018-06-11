@@ -27692,8 +27692,6 @@ function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj;
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-//var mPoses = [];
-
 const videoWidth = 640;
 const videoHeight = 360;
 
@@ -27709,7 +27707,7 @@ async function setupCamera() {
       width: videoWidth,
       height: videoHeight }
   });
-
+  
   video.srcObject = stream;
 
   return new _promise2.default(resolve => {
@@ -27743,7 +27741,7 @@ function detectPoseInRealTime(video, net) {
   canvas.height = videoHeight;
 
   async function poseDetectionFrame() {
-    const imageScaleFactor = 0.8;
+    const imageScaleFactor = 0.6;
     const outputStride = 16;
     let poses = [];
     let minPoseConfidence = 0.2;
