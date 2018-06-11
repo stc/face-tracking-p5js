@@ -2,12 +2,12 @@ let capture;
 const captureRatio = 1.333;
 let cPoses = [];
 
-var  VerletPhysics2D = toxi.physics2d.VerletPhysics2D,
-      VerletParticle2D = toxi.physics2d.VerletParticle2D,
-      AttractionBehavior = toxi.physics2d.behaviors.AttractionBehavior,
-      GravityBehavior = toxi.physics2d.behaviors.GravityBehavior,
-      Vec2D = toxi.geom.Vec2D,
-      Rect = toxi.geom.Rect;
+var VerletPhysics2D = toxi.physics2d.VerletPhysics2D,
+    VerletParticle2D = toxi.physics2d.VerletParticle2D,
+    AttractionBehavior = toxi.physics2d.behaviors.AttractionBehavior,
+    GravityBehavior = toxi.physics2d.behaviors.GravityBehavior,
+    Vec2D = toxi.geom.Vec2D,
+    Rect = toxi.geom.Rect;
 
 let NUM_PARTICLES = 200;
 
@@ -36,10 +36,10 @@ function setup() {
 }
 
 function addParticle() {
- let randLoc = Vec2D.randomVector().scale(5).addSelf(width / 2, 0);
- let p = new VerletParticle2D(randLoc);
-  physics.addParticle(p); 
-  physics.addBehavior(new AttractionBehavior(p, 20, -1.2, 0.01));
+	let randLoc = Vec2D.randomVector().scale(5).addSelf(width / 2, 0);
+ 	let p = new VerletParticle2D(randLoc);
+  	physics.addParticle(p); 
+  	physics.addBehavior(new AttractionBehavior(p, 20, -1.2, 0.01));
 }
 
 function draw() {
@@ -87,18 +87,18 @@ function draw() {
 }
 
 function mousePressed() {
-  addParticle();
-  mousePos = new Vec2D(mouseX, mouseY); 
-  mouseAttractor = new AttractionBehavior(mousePos, 250, 0.9);
-  physics.addBehavior(mouseAttractor);
+  	addParticle();
+  	mousePos = new Vec2D(mouseX, mouseY); 
+  	mouseAttractor = new AttractionBehavior(mousePos, 250, 0.9);
+  	physics.addBehavior(mouseAttractor);
 }
 
 function mouseDragged() {
-  mousePos.set(mouseX, mouseY);
+  	mousePos.set(mouseX, mouseY);
 }
 
 function mouseReleased() {
-  physics.removeBehavior(mouseAttractor);
+  	physics.removeBehavior(mouseAttractor);
 }
 
 
