@@ -27694,8 +27694,8 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 //var mPoses = [];
 
-const videoWidth = 600;
-const videoHeight = 500;
+const videoWidth = 640;
+const videoHeight = 360;
 
 async function setupCamera() {
   const video = document.getElementById('video');
