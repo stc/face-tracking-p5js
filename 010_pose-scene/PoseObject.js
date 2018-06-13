@@ -14,14 +14,16 @@ class Pose {
 
 	draw() {
 		for(let i=0; i< this.pose.length; i++) {
-			if(i<5) {
-				noStroke();
-				fill(255);
-				ellipse(this.pose[i][0], this.pose[i][1],10, 10);
-			}
+			noStroke();
+			fill(255,0,100);
+			ellipse(this.pose[i][0], this.pose[i][1],10, 10);
 			
-			/*stroke(255);
-			strokeWeight(3);
+			
+			
+			stroke(255);
+			line(this.pose[5][0], this.pose[5][1],  this.pose[6][0],  this.pose[6][1]);
+			
+			/*
 			line(this.pose[5][0], this.pose[5][1],  this.pose[6][0],  this.pose[6][1]);
 			line(this.pose[5][0], this.pose[5][1],  this.pose[7][0],  this.pose[7][1]);
 			line(this.pose[6][0], this.pose[6][1],  this.pose[8][0],  this.pose[8][1]);
@@ -38,6 +40,8 @@ class Pose {
 			*/
 			
 			noStroke();
+			fill(255,100);
+			textSize(30);
 			text(i, this.pose[i][0]+10,this.pose[i][1]);
 		}	
 	}

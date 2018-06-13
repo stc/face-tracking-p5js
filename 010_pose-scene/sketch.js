@@ -1,11 +1,3 @@
-/*
-
-
-To be extended into a playground / scene
-
-
-*/
-
 let capture;
 let cPoses = [];
 
