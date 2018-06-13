@@ -9,7 +9,7 @@ _fig. 1: Feature points of tracked faces_
 _fig. 2: Left- Source Code in Brackets editor, Middle- Indexed feature points, Right- Error message_
 
 ### Installation
-All the examples are using [P5JS](http://p5js.org/) for displaying graphics and playing back sounds. The face tracking is based on [clmtrackr](https://github.com/auduno/clmtrackr), except for _009_pose_ example, see below for details. Each of these libraries can be found in the 'libs' folder. To launch the experiments, download the [brackets](http://brackets.io/) editor. Open the folder of this repository and hit 'live preview' on the top right.
+All the examples are using [P5JS](http://p5js.org/) for displaying graphics and playing back sounds. The face tracking is based on [clmtrackr](https://github.com/auduno/clmtrackr), except for _009_pose-basic_ &  _010_pose_scene_ examples, see below for details. Each of these libraries can be found in the 'libs' folder. To launch the experiments, download the [brackets](http://brackets.io/) editor. Open the folder of this repository and hit 'live preview' on the top right.
 
 ![003](https://user-images.githubusercontent.com/270431/40185938-32323722-59f4-11e8-98a0-0bb116c9bf3c.jpg)
 _fig. 3: Scene example, where graphical elements are moved, based on head position_
@@ -24,7 +24,7 @@ Each example includes media files (sounds, animated gifs, images etc). The 'libs
 See the [wiki](https://github.com/stc/face-tracking-p5js/wiki/Schedule) for detailed workshop schedule and the specific tasks we are dealing with during the session. Durations of the parts may vary depending on the knowledge and interest of the participants.
 
 ### Notes
-_009_pose_ example is highly experimental and a quick hack to use [pose estimation from tensorflow.js](https://github.com/tensorflow/tfjs-models/tree/master/posenet) together with p5js (we are using it for multiple head tracking on the workshop). It can be tried out, and is set up to track multiple poses from a single camera image. All the variables and parameters are baked into the pre-generated ts-pose.js file, if you'd like to tinker with it, I recommend the [official site](https://github.com/tensorflow/tfjs-models/tree/master/posenet). However, for a quick demonstration, you can make your own drawing methods and desired interactions on the p5 side. Needs network connection to load the pretrained Tensorflow models.
+_009_pose-basic_ &  _010_pose_scene_ examples are highly experimental: they are a quick hack to use [pose estimation from tensorflow.js](https://github.com/tensorflow/tfjs-models/tree/master/posenet) together with p5js (we are using it for multiple head tracking on the workshop). This body tracking method can be tried out, by default it is set up to track multiple poses from a single camera image. All the variables and parameters are baked into the pre-generated ts-pose.js file, if you'd like to tinker with it, I recommend the [official site](https://github.com/tensorflow/tfjs-models/tree/master/posenet). However, for a quick demonstration, you can make your own drawing methods and desired interactions on the p5 side. Needs network connection to load the pretrained Tensorflow models.
 
 (c) 2018 Agoston Nagy / gpl v3
 
