@@ -26,7 +26,7 @@ See the [wiki](https://github.com/stc/face-tracking-p5js/wiki/Schedule) for deta
 ### Notes
 ![posenet](https://user-images.githubusercontent.com/270431/41465910-53f52e6a-70a0-11e8-924d-42090a27b4d0.gif)
 
-_009_pose-basic_ &  _010_pose_scene_ examples are using [pose estimation from tensorflow.js](https://github.com/tensorflow/tfjs-models/tree/master/posenet) together with p5js (we are using it for multiple head tracking on the workshop). This version PoseNet is built with the [ml5 javascript libary](https://ml5js.org/), that aims to make machine learning accessible to a broad audience of artists, creative coders, and students. The library provides access to machine learning algorithms and models in the browser, building on top of TensorFlow.js with no other external dependencies.
+_009_pose-basic_ &  _010_pose_scene_ examples are using [pose estimation from tensorflow.js](https://github.com/tensorflow/tfjs-models/tree/master/posenet) together with p5js (we are using it for multiple head tracking on the workshop). This version of PoseNet is built with the [ml5 javascript libary](https://ml5js.org/), that aims to make machine learning accessible to a broad audience of artists, creative coders, and students. The library provides access to machine learning algorithms and models in the browser, building on top of TensorFlow.js with no other external dependencies.
 
 (c) 2018 Agoston Nagy / gpl v3
 
