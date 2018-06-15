@@ -1,36 +1,57 @@
-let capture;
-let cPoses = [];
+/*
+
+Example taken from ml5js repository:
+https://github.com/ml5js/ml5-examples/tree/master/p5js/PoseNet
+
+*/
+
+let w = 640;
+let h = 480;
+let video;
+let poseNet;
+let poses = [];
+let skeletons = [];
 
 function setup() {
-	let canvas = createCanvas(windowWidth,windowHeight);
-	canvas.position(0,0);
-	canvas.id("mCanvas");
-	capture = createCapture(VIDEO);
-	capture.hide();
+  createCanvas(w, h);
+  video = createCapture(VIDEO);
+  
+  poseNet = ml5.poseNet(video, 'multiple', gotPoses);
+  
+  video.hide();
+  fill(255);
+  stroke(255);
 }
 
 function draw() {
-	// p5's clear method is buggy, clearing canvas 
-	// with raw canvaselement call
-	var c=document.getElementById("mCanvas");
-	var ctx=c.getContext("2d");
-	ctx.clearRect(0,0,windowWidth,windowHeight);
-	
-	cPoses = [];
-	for(let i=0; i<mPoses.length; i++) {	
-		cPoses.push(new Pose(mPoses[i]));
-		for(let j=0;j<mPoses[i].keypoints.length;j++) {
-			if(mPoses[i].score>0.2 && mPoses[i].score < 0.5) {
-				cPoses[i].update(mPoses[i].keypoints);
-			}
-		}
-	}
-	for(let p of cPoses) {
-		p.draw();
-	}
-
-	fill(255);
-	text(int(frameRate()), 30, 30);
+  image(video, 0, 0, w, h);
+  drawKeypoints();
+  drawSkeleton();
 }
 
 
+
+function drawSkeleton() {
+  for(let i = 0; i < poses.length; i++) {
+    for(let j = 0; j < poses[i].skeleton.length; j++) {
+      let partA = poses[i].skeleton[j][0];
+      let partB = poses[i].skeleton[j][1];
+      line(partA.position.x, partA.position.y, partB.position.x, partB.position.y);
+    }
+  }
+}
+
+function drawKeypoints() {
+  for(let i = 0; i < poses.length; i++) {
+    for(let j = 0; j < poses[i].pose.keypoints.length; j++) {
+      let keypoint = poses[i].pose.keypoints[j];
+      if (keypoint.score > 0.2) {
+        ellipse(keypoint.position.x, keypoint.position.y, 10, 10);
+      }
+    }
+  }
+}
+
+function gotPoses(results) {
+  poses = results;
+}
