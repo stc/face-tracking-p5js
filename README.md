@@ -24,7 +24,8 @@ Each example includes media files (sounds, animated gifs, images etc). The 'libs
 See the [wiki](https://github.com/stc/face-tracking-p5js/wiki/Schedule) for detailed workshop schedule and the specific tasks we are dealing with during the session. Durations of the parts may vary depending on the knowledge and interest of the participants.
 
 ### Notes
-![posenet](https://user-images.githubusercontent.com/270431/41465910-53f52e6a-70a0-11e8-924d-42090a27b4d0.gif | width=250)
+
+<img src="https://user-images.githubusercontent.com/270431/41465910-53f52e6a-70a0-11e8-924d-42090a27b4d0.gif " data-canonical-src="https://gyazo.com/eb5c5741b6a9a16c692170a41a49c858.png" width="250" />
 
 _009_pose-basic_ &  _010_pose_scene_ examples are using [pose estimation from tensorflow.js](https://github.com/tensorflow/tfjs-models/tree/master/posenet) together with p5js (we are using it for multiple head tracking on the workshop). This version of PoseNet is built with the [ml5 javascript libary](https://ml5js.org/), that aims to make machine learning accessible to a broad audience of artists, creative coders, and students. The library provides access to machine learning algorithms and models in the browser, building on top of TensorFlow.js with no other external dependencies.
 
