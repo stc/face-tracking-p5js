@@ -20,7 +20,7 @@ let VerletPhysics2D = toxi.physics2d.VerletPhysics2D,
     Vec2D = toxi.geom.Vec2D,
     Rect = toxi.geom.Rect;
 
-let NUM_PARTICLES = 100;
+let NUM_PARTICLES = 150;
 
 let physics;
 let mouseAttractor;
@@ -28,6 +28,18 @@ let mousePos;
 
 let headAttractor;
 let headPos;
+
+let leftSAttractor;
+let leftPos;
+
+let rightSAttractor;
+let rightPos;
+
+let leftHAttractor;
+let leftHPos;
+
+let rightHAttractor;
+let rightHPos;
 
 function setup() {
   createCanvas(w, h);
@@ -41,12 +53,28 @@ function setup() {
 
   physics = new VerletPhysics2D();
   physics.setDrag(0.05);
-  physics.setWorldBounds(new Rect((0, 0, width, height)));
+  physics.setWorldBounds(new Rect(0, 0, width, height-height/3));
   physics.addBehavior(new GravityBehavior(new Vec2D(0, 0.15)));
 
   headPos = new Vec2D(width/2,height/2); 
   headAttractor = new AttractionBehavior(headPos, 200, -0.9);
   physics.addBehavior(headAttractor);
+
+  leftPos = new Vec2D(width/2,height/2); 
+  leftSAttractor = new AttractionBehavior(leftPos, 100, -0.9);
+  physics.addBehavior(leftSAttractor);
+  
+  rightPos = new Vec2D(width/2,height/2); 
+  rightSAttractor = new AttractionBehavior(rightPos, 100, -0.9);
+  physics.addBehavior(rightSAttractor);
+
+  leftHPos = new Vec2D(width/2,height/2); 
+  leftHAttractor = new AttractionBehavior(leftHPos, 100, -0.9);
+  physics.addBehavior(leftHAttractor);
+
+  rightHPos = new Vec2D(width/2,height/2); 
+  rightHAttractor = new AttractionBehavior(rightHPos, 100, -0.9);
+  physics.addBehavior(rightHAttractor);
 }
 
 function addParticle() {
@@ -58,9 +86,14 @@ function addParticle() {
 
 function draw() {
   physics.update();
+  background(255);
+  tint(255,40);
   image(video, 0, 0, w, h);
   drawKeypoints();
   drawSkeleton();
+
+  stroke(0,100);
+  line(0,height-height/3,width,height-height/3);
 
   if (physics.particles.length < NUM_PARTICLES) {
     addParticle();
@@ -68,13 +101,13 @@ function draw() {
     
   for (let i=0;i<physics.particles.length;i++) {
     let p = physics.particles[i];
-    fill(255);
+    fill(0);
     noStroke();
     ellipse(p.x, p.y, 10, 10);
   }
 
   noStroke();
-  text(int(frameRate()), 30, 30);
+  //text(int(frameRate()), 30, 30);
 }
 
 function drawSkeleton() {
@@ -82,6 +115,7 @@ function drawSkeleton() {
     for(let j = 0; j < poses[i].skeleton.length; j++) {
       let partA = poses[i].skeleton[j][0];
       let partB = poses[i].skeleton[j][1];
+      stroke(0);
       line(partA.position.x, partA.position.y, partB.position.x, partB.position.y);
     }
   }
@@ -95,12 +129,40 @@ function drawKeypoints() {
         fill(255,0,100);
         noStroke();
         ellipse(keypoint.position.x, keypoint.position.y, 10, 10);
+        text(j,keypoint.position.x+10, keypoint.position.y);
         if(j==0) {
           headPos.set(keypoint.position.x, keypoint.position.y);
           noFill();
-          stroke(255,255,0);
+          stroke(100,100,0);
           ellipse(keypoint.position.x, keypoint.position.y,200,200);
         }
+        if(j==5) {
+          leftPos.set(keypoint.position.x, keypoint.position.y);
+          noFill();
+          stroke(100,100,0);
+          ellipse(keypoint.position.x, keypoint.position.y,100,100);
+        }
+        if(j==6) {
+          rightPos.set(keypoint.position.x, keypoint.position.y);
+          noFill();
+          stroke(100,100,0);
+          ellipse(keypoint.position.x, keypoint.position.y,100,100);
+        }
+
+        if(j==9) {
+          rightHPos.set(keypoint.position.x, keypoint.position.y);
+          noFill();
+          stroke(100,100,0);
+          ellipse(keypoint.position.x, keypoint.position.y,100,100);
+        }
+
+        if(j==10) {
+          leftHPos.set(keypoint.position.x, keypoint.position.y);
+          noFill();
+          stroke(100,100,0);
+          ellipse(keypoint.position.x, keypoint.position.y,100,100);
+        }
+
       }
     }
   }
