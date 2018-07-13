@@ -1,33 +1,18 @@
-var ctracker;
-
 function setup() {
-    // setup camera capture
-    var videoInput = createCapture();
-    videoInput.size(400, 300);
-    videoInput.position(0, 0);
-    videoInput.hide();
-    videoInput.id("v");
-    var mv = document.getElementById("v");
-    mv.muted = true;
-        
-    // setup canvas
-    var cnv = createCanvas(400, 300);
-    cnv.position(0, 0);
+    loadCamera();
+    loadTracker();
     
-    // setup tracker
-    ctracker = new clm.tracker();
-    ctracker.init(pModel);
-    ctracker.start(videoInput.elt);
-    noStroke();
+    // setup canvas
+    var canvas = createCanvas(400, 300);
+    canvas.position(0,0);
 }
       
 function draw() {
     background(0);
-    // get array of face marker positions [x, y] format
-    var positions = ctracker.getCurrentPosition();
-    
     textSize(20);
     textAlign(CENTER,CENTER);
+    
+    getPositions();
     
     if(positions.length > 0) {
         // face is present

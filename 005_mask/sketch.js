@@ -1,33 +1,23 @@
-var ctracker;
 var myImage;
 
 function setup() {
-    // setup camera capture
-    var videoInput = createCapture();
-    videoInput.size(400, 300);
-    videoInput.position(0, 0);
-    videoInput.id("v");
-    var mv = document.getElementById("v");
-    mv.muted = true;
-        
-    // setup canvas
-    var cnv = createCanvas(400, 300);
-    cnv.position(0, 0);
+    loadCamera();
+    loadTracker();
     
-    // setup tracker
-    ctracker = new clm.tracker();
-    ctracker.init(pModel);
-    ctracker.start(videoInput.elt);
-    noStroke();
-
+    // setup canvas
+    var canvas = createCanvas(400, 300);
+    canvas.position(0,0);
+    
     myImage = loadImage("mask.png");
 }
       
 function draw() {
     clear();
-    // get array of face marker positions [x, y] format
-    var positions = ctracker.getCurrentPosition();
-    
+    getPositions();
+    drawMask();
+}
+
+function drawMask() {
     if(positions.length > 0) {
         var p1 = createVector(positions[7][0], positions[7][1] );
         var p2 = createVector(positions[33][0], positions[33][1] );
