@@ -3,10 +3,7 @@ var eyeImage, noseImage, mouthImage;
 function setup() {
     loadCamera();
     loadTracker();
-    
-    // setup canvas
-    var cnv = createCanvas(400, 300);
-    cnv.position(0, 0);
+    loadCanvas(400,300);
     
     eyeImage = loadImage("eye.png");
     noseImage = loadImage("nose.png");
@@ -14,10 +11,8 @@ function setup() {
 }
       
 function draw() {
-    clear();
-
     getPositions();
-    
+    clear();
     drawElements();
 }
 

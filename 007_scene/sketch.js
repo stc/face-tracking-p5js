@@ -4,19 +4,17 @@ var headpos;
 function setup() {
     loadCamera();
     loadTracker();
+    loadCanvas(400,300);
     
-    // setup canvas
-    var cnv = createCanvas(400, 300);
-    cnv.position(0, 0);
-    
-    // setup sound
+    // load an image
     myGif = loadImage("orccatgif.gif");
 }
       
 function draw() {
+    getPositions();
+    
     background(179, 224, 255);
     
-    getPositions();
     
     if(positions.length > 0) {
         headpos = width/2 - positions[37][0];

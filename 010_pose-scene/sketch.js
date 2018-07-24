@@ -11,6 +11,11 @@ let video;
 let poseNet;
 let poses = [];
 let skeletons = [];
+let textures = [];
+let pPositions = [];
+let cPositions = [];
+let xs = [];
+let easing = 0.1;
 
 // physics for playful interaction
 let VerletPhysics2D = toxi.physics2d.VerletPhysics2D,
@@ -20,7 +25,7 @@ let VerletPhysics2D = toxi.physics2d.VerletPhysics2D,
     Vec2D = toxi.geom.Vec2D,
     Rect = toxi.geom.Rect;
 
-let NUM_PARTICLES = 150;
+let NUM_PARTICLES = 10;
 
 let physics;
 let mouseAttractor;
@@ -44,8 +49,15 @@ let rightHPos;
 function setup() {
   createCanvas(w, h);
   video = createCapture(VIDEO);
-  
-  poseNet = ml5.poseNet(video, 'multiple', gotPoses);
+  loadTextures();
+  for(let i=0;i<NUM_PARTICLES;i++) {
+    let p = createVector(0,0);
+    pPositions.push(p);
+    cPositions.push(p);
+    xs.push(0);
+  }
+
+  poseNet = ml5.poseNet(video, 'single', gotPoses);
   
   video.hide();
   fill(255);
@@ -53,27 +65,27 @@ function setup() {
 
   physics = new VerletPhysics2D();
   physics.setDrag(0.05);
-  physics.setWorldBounds(new Rect(0, 0, width, height-height/3));
+  physics.setWorldBounds(new Rect(50, 0, width-100, height-height/3));
   physics.addBehavior(new GravityBehavior(new Vec2D(0, 0.15)));
 
   headPos = new Vec2D(width/2,height/2); 
-  headAttractor = new AttractionBehavior(headPos, 200, -0.9);
+  headAttractor = new AttractionBehavior(headPos, 200, -2.9);
   physics.addBehavior(headAttractor);
 
   leftPos = new Vec2D(width/2,height/2); 
-  leftSAttractor = new AttractionBehavior(leftPos, 100, -0.9);
+  leftSAttractor = new AttractionBehavior(leftPos, 100, -2.9);
   physics.addBehavior(leftSAttractor);
   
   rightPos = new Vec2D(width/2,height/2); 
-  rightSAttractor = new AttractionBehavior(rightPos, 100, -0.9);
+  rightSAttractor = new AttractionBehavior(rightPos, 100, -2.9);
   physics.addBehavior(rightSAttractor);
 
   leftHPos = new Vec2D(width/2,height/2); 
-  leftHAttractor = new AttractionBehavior(leftHPos, 100, -0.9);
+  leftHAttractor = new AttractionBehavior(leftHPos, 100, -2.9);
   physics.addBehavior(leftHAttractor);
 
   rightHPos = new Vec2D(width/2,height/2); 
-  rightHAttractor = new AttractionBehavior(rightHPos, 100, -0.9);
+  rightHAttractor = new AttractionBehavior(rightHPos, 100, -2.9);
   physics.addBehavior(rightHAttractor);
 }
 
@@ -81,7 +93,7 @@ function addParticle() {
   let randLoc = Vec2D.randomVector().scale(5).addSelf(width / 2, 0);
   let p = new VerletParticle2D(randLoc);
     physics.addParticle(p); 
-    physics.addBehavior(new AttractionBehavior(p, 20, -1.2, 0.01));
+    physics.addBehavior(new AttractionBehavior(p, 100, -0.8, 0.1));
 }
 
 function draw() {
@@ -101,9 +113,23 @@ function draw() {
     
   for (let i=0;i<physics.particles.length;i++) {
     let p = physics.particles[i];
-    fill(0);
-    noStroke();
-    ellipse(p.x, p.y, 10, 10);
+    cPositions[i]=createVector(p.x,p.y);
+    //fill(0);
+    //noStroke();
+    //ellipse(p.x, p.y, 10, 10);
+
+    var angleDeg = Math.atan2(pPositions[i].y - p.y, pPositions[i].x - p.x);
+    let targetX = angleDeg;
+    let dx = targetX - xs[i];
+    xs[i] += dx * easing;
+  
+    tint(255);
+    push();
+    translate(p.x, p.y);
+    rotate(xs[i]);
+    image(textures[i],-50,-50,100,100);
+    pop();
+    pPositions[i] = cPositions[i];
   }
 
   noStroke();
@@ -165,6 +191,13 @@ function drawKeypoints() {
 
       }
     }
+  }
+}
+
+function loadTextures() {
+  for(let i=0;i<10;i++) {
+    let myTexture = loadImage("data/airplanes/00" + i + ".png");
+    textures.push(myTexture);
   }
 }
 

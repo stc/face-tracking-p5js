@@ -1,19 +1,17 @@
 function setup() {
     loadCamera();
     loadTracker();
-    
-    // setup canvas
-    var canvas = createCanvas(400, 300);
-    canvas.position(0,0);
+    loadCanvas(400,400);
 }
       
 function draw() {
-    background(0);
-    textSize(20);
-    textAlign(CENTER,CENTER);
-    
     getPositions();
     
+    background(0);
+    
+    textSize(20);
+    textAlign(CENTER,CENTER);
+
     if(positions.length > 0) {
         // face is present
         fill(100,225,220);

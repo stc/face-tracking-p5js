@@ -3,17 +3,15 @@ var myImage;
 function setup() {
     loadCamera();
     loadTracker();
+    loadCanvas(400,300);
     
-    // setup canvas
-    var canvas = createCanvas(400, 300);
-    canvas.position(0,0);
-    
+    // load an image
     myImage = loadImage("mask.png");
 }
       
 function draw() {
-    clear();
     getPositions();
+    clear();
     drawMask();
 }
 

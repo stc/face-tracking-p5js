@@ -1,6 +1,12 @@
 var ctracker;
 var videoInput;
 var positions = [];
+var canvas;
+
+function loadCanvas(w, h) {
+    canvas = createCanvas(w, h);
+    canvas.position(0,0);
+}
 
 function loadCamera() {
     // setup camera capture
@@ -22,7 +28,6 @@ function loadTracker() {
 function getPositions() {
     // get array of face marker positions [x, y] format
     positions = ctracker.getCurrentPosition();
-    
 }
 
 

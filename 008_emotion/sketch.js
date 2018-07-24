@@ -1,21 +1,18 @@
 function setup() {
     loadCamera();
     loadTracker();
-        
-    // setup canvas
-    var cnv = createCanvas(400, 300);
-    cnv.position(0, 0);
+    loadCanvas(400,300);
 }
       
 function draw() {
+    getPositions();
+    getEmotions();
+    
     clear();
-    // darken video bg
+    
     noStroke();
     fill(0,150);
     rect(0,0,width,height);
-    
-    getPositions();
-    getEmotions();
     
     drawPoints();
 
