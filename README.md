@@ -18,7 +18,7 @@ _fig. 3: Scene example, where graphical elements are moved, based on head positi
 _fig. 4: Sentiment Analysis_
 
 ### Folder Structure
-Each example includes media files (sounds, animated gifs, images etc). The 'libs' folder contains the necessary js libraries and the pre-trained face traclking models. Check `libs/worshop-utils.js` on how simplified, workshop specific functions operate (loading camera, tracker, etc.)
+Each example includes media files (sounds, animated gifs, images etc). The 'libs' folder contains the necessary js libraries and the pre-trained face traclking models. The examples are kept as simple as possible, so some html related manipulation needed to be wrapped into some utility functions. Check [libs/worshop-utils.js](https://github.com/stc/face-tracking-p5js/blob/master/libs/workshop-utils.js) on how these simplified, workshop specific functions operate (loading camera, tracker, etc.)
 
 ### Workshop Schedule
 See the [wiki](https://github.com/stc/face-tracking-p5js/wiki/Schedule) for detailed workshop schedule and the specific tasks we are dealing with during the session. Durations of the parts may vary depending on the knowledge and interest of the participants.
