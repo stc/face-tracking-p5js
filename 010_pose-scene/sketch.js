@@ -57,7 +57,7 @@ function setup() {
     xs.push(0);
   }
 
-  poseNet = ml5.poseNet(video, 'single', gotPoses);
+  poseNet = ml5.poseNet(video, 'multiple', gotPoses);
   
   video.hide();
   fill(255);
