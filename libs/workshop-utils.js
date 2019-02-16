@@ -29,7 +29,7 @@ Load the capture device, align under the canvas & mute it to avoid audiofeedback
 
 function loadCamera() {
     // setup camera capture
-    videoInput = createCapture();
+    videoInput = createCapture(VIDEO);
     videoInput.size(400, 300);
     videoInput.position(0, 0);
     videoInput.id("v");

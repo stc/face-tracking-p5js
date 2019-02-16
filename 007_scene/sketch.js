@@ -22,7 +22,7 @@ function draw() {
         headpos = 0;
     }
     
-    imageMode(CENTER,CENTER);
+    imageMode(CENTER);
     image(myGif,width/2,height/2);
     
     noStroke();

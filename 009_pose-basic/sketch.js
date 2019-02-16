@@ -16,8 +16,12 @@ function setup() {
   createCanvas(w, h);
   video = createCapture(VIDEO);
   
-  poseNet = ml5.poseNet(video, 'multiple', gotPoses);
-  
+  poseNet = ml5.poseNet(video, modelLoaded);
+
+  poseNet.on('pose', function (results) {
+    poses = results;
+  });
+
   video.hide();
   fill(255);
   stroke(255);
@@ -52,6 +56,8 @@ function drawKeypoints() {
   }
 }
 
-function gotPoses(results) {
-  poses = results;
+function modelLoaded() {
+  print('model loaded'); 
 }
+
+

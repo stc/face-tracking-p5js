@@ -43,7 +43,7 @@ function drawElements() {
         var angleRad = Math.atan2(p2.y - p1.y, p2.x - p1.x);
         var mSize = p1.dist(p2);
         
-        imageMode(CENTER,CENTER);
+        imageMode(CENTER);
         
         push();
         translate(eye1pos.x,eye1pos.y); 
